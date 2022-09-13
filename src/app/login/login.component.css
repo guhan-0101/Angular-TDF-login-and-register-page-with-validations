@@ -1,0 +1,14 @@
+@media screen and (max-width:1000px) {
+ .col-lg-5{
+    display: none;
+}   
+
+
+}
+@media screen and (min-width:766px) {
+   form{
+    width: 500px;
+   } 
+ 
+   
+   }

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fa-brands{
+    color: blue;
+    font-size: 70px;
+}
+h1{
+    color: blue;
+}
+.btn{
+   width: 100%;
+}
+.row{
+    background: rgb(255, 255, 255);
+}
+.errorMessage{
+    font-size: 15px;
+    color: red;
+}
+
+@media screen and (max-width:1225px){
+    .col-lg-4{
+    display: none; 
+ }
+   .right{
+     width: 400px;
+ 
+   }  
+ }
+ @media screen and (min-width:993px){
+     .right{
+         width: 520px;
+         margin-left:100px;
+        
+       }    
+ }
+ 

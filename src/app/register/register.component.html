@@ -1,0 +1,91 @@
+<div class="form mt-5 " style="margin-left:100px;">
+  <div class="container">
+    <div class="row">
+      <!-- left side image -->
+       <div class="col-lg-4  ">
+               <img src="../../assets/images/login.png" class=" my-3 mr-3" alt="backround">
+     </div>
+        <!-- form   -->
+      <div class="col-lg-7 right ">
+                 <h1>Facebook</h1>
+                  <h4>Create your account</h4>
+   
+       <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)" class="mr-2">
+          <div class="formgroup  ">
+            <div class="col-lg-7 my-2">
+                       <input type="text" class="form-control py-2" name="name" #name="ngModel" [(ngModel)]="newUserInfo.name"
+                        minlength="4" placeholder="Fullname" required>
+            </div> 
+            <div class="errorMessage" *ngIf="(name.touched||registerForm.submitted)&&name.errors?.['required']">
+                       Please enter your name
+            </div>
+            <div class="errorMessage" *ngIf="(name.touched||registerForm.submitted)&&name.errors?.['minlength']">
+                       Fullname must be 4-20 characters
+            </div>
+          </div>
+          <div class="form-group ">
+            <div class="col-lg-7 ">
+                      <input type="Email" class="form-control py-2 my-3" name="email" #emailId="ngModel"
+                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="newUserInfo.email"
+                       placeholder="Enter your email" required>
+            </div>
+            <div class="errorMessage" *ngIf="(emailId.touched||registerForm.submitted)&&emailId.errors?.['required']">
+                      Please enter your Email address
+            </div>
+            <div class="errorMessage" *ngIf="(emailId.touched||registerForm.submitted)&&emailId.errors?.['pattern']">
+                      Please enter a vailid Email address
+            </div>
+            <div class="form-group ">
+              <div class="col-lg-7 ">
+                     <input type="number" class="form-control py-2 my-3" name="number" #number="ngModel"
+                      pattern="^((\\+91-?)|0)?[0-9]{10}$" [(ngModel)]="newUserInfo.number"
+                      placeholder="Enter your mobile number" required>
+              </div>
+              <div class="errorMessage" *ngIf="(number.touched||registerForm.submitted)&&number.errors?.['required']">
+                      Please enter your mobile number
+              </div>
+              <div class="errorMessage" *ngIf="(number.touched||registerForm.submitted)&&number.errors?.['pattern']">
+                      Enter a valid mobile number
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-lg-7 ">
+                     <input type="password" class="form-control py-2 my-3" name="CreatePassword" #CreatePassword="ngModel"
+                      pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" minlength="8"
+                      [(ngModel)]=" newUserInfo.CreatePassword" placeholder="Create password" required>
+              </div>
+              <div class="errorMessage"
+                      *ngIf="(CreatePassword.touched||registerForm.submitted)&&CreatePassword.errors?.['required']">
+                      Please enter your password
+
+              </div>
+              <div class="errorMessage"
+                     *ngIf="(CreatePassword.touched||registerForm.submitted)&&CreatePassword.errors?.['minlength']">
+                     Please must be contain 8-16 characters both numbers,letters and symbols
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-7">
+                    <input type="password" class="form-control py-2 my-3" name="ConfirmPassword" #ConfirmPassword="ngModel"
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" [(ngModel)]="newUserInfo.ConfirmPassword"
+                    placeholder="Confirm password" required>
+              </div>
+              <div class="errorMessage"
+                    *ngIf="(ConfirmPassword.touched||registerForm.submitted)&&ConfirmPassword.errors?.['required']">
+                    Please enter your password
+              </div>
+              <div class="errorMessage" *ngIf="(newUserInfo.CreatePassword !== newUserInfo.ConfirmPassword)">
+                       CreatePassword and ConfirmPassword must be same
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-7">
+                       <button type="submit" class="btn btn-success btn-block  mt-3 mb-3 ">Register</button>
+              </div>
+            </div>
+           <p> Already have account?<a href="javascript:void(0);" routerLink="/login" style="text-decoration:none;font-weight:400;">&nbsp;Sign in </a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
